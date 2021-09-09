@@ -1,3 +1,163 @@
 <template>
-    
+    <lightning-card>
+        <div class="card__heading slds-p-horizontal_medium">
+            <div class="slds-text-heading_medium">Select Omniscript to compare</div>
+            <div class="slds-m-right_medium card__icon">
+                <!-- <span class="slds-text-heading_xx-small slds-m-horizontal_small search__executed">Search executed in {searchExecutedTimeString} ms</span> -->
+                <template if:true={showConfig}>
+                    <lightning-icon onclick={handleShow} icon-name="utility:up" alternative-text="FilterList" title="Filter Icon" size="small"></lightning-icon> 
+                </template>
+                <template if:false={showConfig}>
+                    <lightning-icon onclick={handleShow} icon-name="utility:down" alternative-text="FilterList" title="Filter Icon" size="small"></lightning-icon> 
+                </template>
+            </div>
+        </div>
+        <template if:true={showConfig}>
+            <div class="slds-grid slds-gutters slds-p-around_medium">
+                <div class="slds-col slds-size_1-of-3">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="combobox-id-3">Search for Omniscript...</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-combobox_container">
+                                <div
+                                    class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
+                                    aria-expanded="false"
+                                    aria-haspopup="listbox"
+                                    role="combobox">
+                                    <div class="slds-combobox__form-element slds-input-has-icon slds-input-has-icon_right" role="none">
+                                        <!-- hide this by default-->
+                                        <div class="selectedOption slds-hide">
+                                            <span class="slds-icon_container slds-icon-standard-account slds-combobox__input-entity-icon" title="Omniscript">
+                                                <lightning-icon
+                                                    icon-name="standard:account"
+                                                    alternative-text="account"
+                                                    size="x-small">
+                                                </lightning-icon>
+                
+                                                <span class="slds-assistive-text">Omniscript</span>
+                                            </span>
+                                            <input
+                                                type="text"
+                                                class="slds-input slds-combobox__input slds-combobox__input-value search-result_left-pad"
+                                                id="combobox-id-5"
+                                                aria-controls="listbox-id-5"
+                                                autocomplete="off"
+                                                role="textbox"
+                                                placeholder="Select an Option"
+                                                readonly=""
+                                                value={selectedOmniscript} />
+                                            <button class="slds-button slds-button_icon slds-input__icon slds-input__icon_right" title="Remove selected option">
+                                                <lightning-icon
+                                                    icon-name="utility:close"
+                                                    alternative-text="close"
+                                                    size="x-small"
+                                                    onclick={handleRemoveSelectedOption}>
+                                                </lightning-icon>
+                                                <span class="slds-assistive-text">Remove selected option</span>
+                                            </button>
+                                        </div>
+                                        <!-- end hide this by default-->
+                                        <div class="defaultClass">
+                                            <input
+                                                type="text"
+                                                class="slds-input slds-combobox__input slds-has-focus"
+                                                id="combobox-id-3"
+                                                aria-activedescendant="option1"
+                                                aria-autocomplete="list"
+                                                aria-controls="listbox-id-3"
+                                                autocomplete="off"
+                                                role="textbox"
+                                                placeholder="Search..."
+                                                onfocus={handleFocus}
+                                                onkeyup={handleKeyUp}
+                                                value={search} />
+                                            <span class="slds-icon_container slds-icon-utility-search slds-input__icon slds-input__icon_right">
+                                                <lightning-icon
+                                                    icon-name="utility:search"
+                                                    alternative-text="Approved"
+                                                    size="x-small">
+                                                </lightning-icon>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div
+                                        id="listbox-id-3"
+                                        class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid accounts_list slds-hide"
+                                        role="listbox">
+                                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                            <template
+                                                for:each={searchedOmniscripts}
+                                                for:item="omniscript">
+                                                <li
+                                                    role="presentation"
+                                                    class="slds-listbox__item"
+                                                    key={omniscript.Id}
+                                                    onclick={handleOSChange}
+                                                    data-id={omniscript.Id}
+                                                    data-name={omniscript.Name}
+                                                    data-type={omniscript.vlocity_ins__Type__c}
+                                                    data-sub-type={omniscript.vlocity_ins__SubType__c}
+                                                    data-language={omniscript.vlocity_ins__Language__c}>
+                                                    <div
+                                                        aria-selected="true"
+                                                        id={omniscript.Id}
+                                                        class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+                                                        role="option"
+                                                        tabindex="0">
+                                                        <span
+                                                            class="slds-media__figure slds-listbox__option-icon">
+                                                            <span class="slds-icon_container slds-icon-standard-account">
+                                                                <lightning-icon
+                                                                    icon-name="standard:account"
+                                                                    alternative-text="Omniscript"
+                                                                    small="x-small">
+                                                                </lightning-icon>
+                                                            </span>
+                                                        </span>
+                                                        <span class="slds-media__body">
+                                                            <span class="slds-listbox__option-text slds-listbox__option-text_entity">Omniscript</span>
+                                                            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity" >{omniscript.Name}</span>
+                                                        </span>
+                                                    </div>
+                                                </li>
+                                            </template>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-grid slds-gutters slds-p-horizontal_medium slds-p-bottom_medium">
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="primaryVersion"
+                        class="primaryVersion"
+                        label="Primary Version"
+                        placeholder="Select Primary Version..."
+                        value={primaryVersion}
+                        options={primaryVersionOptions}
+                        onchange={handlePrimaryVersionChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3">
+                    <lightning-combobox
+                        name="secondaryVersion"
+                        class="secondaryVersion"
+                        label="Secondary Version"
+                        placeholder="Select Secondary Version..."
+                        value={secondaryVersion}
+                        options={secondaryVersionOptions}
+                        onchange={handleSecondaryVersionChange}>
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-3 button__container">
+                    <lightning-button variant="brand" label="Get Difference" title="Get Difference" onclick={getDifference} class="slds-m-left_x-small"></lightning-button>
+                </div>
+            </div>
+        </template>
+        
+    </lightning-card>
 </template>
