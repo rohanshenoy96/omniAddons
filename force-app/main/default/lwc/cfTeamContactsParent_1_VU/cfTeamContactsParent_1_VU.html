@@ -1,0 +1,66 @@
+<template>
+            <div class="slds-grid slds-wrap slds-is-relative">
+            <div if:false={cardLoaded} class="slds-is-absolute vloc-loader_override" style="height: 100%; width: 100%; min-height:50px; background: white; z-index: 99;">
+  <div>
+   <vlocity_ins-spinner
+      variant="brand"
+      alternative-text="Loading content..."
+      size="medium"
+      theme="slds"
+      ></vlocity_ins-spinner>
+  </div>
+</div>
+            <template if:false={hasPermission}>
+              You don't have required permissions to view this card.
+            </template>
+            <template if:true={hasPermission}>
+              <template if:true={hasRecords}>
+                        <template for:each={_records} for:item="record" for:index="rindex">
+                            <vlocity_ins-flex-card-state key={record.uniqueKey} data-recordid={record.Id} record={record} data-statue="true"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div class="slds-col   slds-border_bottom slds-p-around_x-small  slds-size_12-of-12  " style="     border-color:#cccccc;        ">
+    <vlocity_ins-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-p-around_small  slds-size_1-of-12  " style="             "><vlocity_ins-flex-icon  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="large"  extraclass="slds-icon_container slds-icon__svg--default "  variant="default"  imgsrc=""  color="#68B5E6"  theme="slds" ></vlocity_ins-flex-icon>
+      </div><div class="slds-col  slds-p-around_medium  slds-size_8-of-12  " style="             "><vlocity_ins-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_large%22%3E%3Cspan%20style=%22color:%20#68b5e6;%22%3E%3Cstrong%3EContacts%3C/strong%3E%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_ins-output-field>
+      </div>
+        </div></vlocity_ins-block>
+    </div><div class="slds-col   slds-p-around_x-small slds-size_12-of-12 " style="">
+    <vlocity_ins-block  label="Block"  collapsible="true"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_ins-block>
+    </div>
+        </div>
+      </vlocity_ins-flex-card-state>
+                        </template>
+                      </template>
+                      <template if:false={hasRecords}>
+                            <vlocity_ins-flex-card-state  record={record} data-statue="false"  data-index="0" data-rindex={rindex} class="cf-vlocity-state-0 cf-vlocity-state slds-size_12-of-12"  tracking-obj={_childCardTrackingObj} >
+      <div if:true={cardLoaded} class="slds-grid slds-wrap slds-card slds-p-around_x-small slds-m-bottom_x-small" style="">
+          <div class="slds-col   slds-border_bottom slds-p-around_x-small  slds-size_12-of-12  " style="     border-color:#cccccc;        ">
+    <vlocity_ins-block  label="Block"  collapsible="false"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          <div class="slds-col  slds-p-around_small  slds-size_1-of-12  " style="             "><vlocity_ins-flex-icon  record={record}  icon-type="Salesforce SVG"  icon-name="utility:user"  size="large"  extraclass="slds-icon_container slds-icon__svg--default "  variant="default"  imgsrc=""  color="#68B5E6"  theme="slds" ></vlocity_ins-flex-icon>
+      </div><div class="slds-col  slds-p-around_medium  slds-size_8-of-12  " style="             "><vlocity_ins-output-field  record={record}  merge-field="%3Cdiv%20class=%22slds-text-heading_large%22%3E%3Cspan%20style=%22color:%20#68b5e6;%22%3E%3Cstrong%3EContacts%3C/strong%3E%3C/span%3E%3C/div%3E"  card={card}  theme="slds" ></vlocity_ins-output-field>
+      </div>
+        </div></vlocity_ins-block>
+    </div><div class="slds-col   slds-p-around_x-small slds-size_12-of-12 " style="">
+    <vlocity_ins-block  label="Block"  collapsible="true"  record={record}  collapsed-by-default="false"  card={card}  theme="slds" ><div class="slds-grid slds-wrap">
+          
+        </div></vlocity_ins-block>
+    </div>
+        </div>
+      </vlocity_ins-flex-card-state>
+                      </template>
+            </template>
+            <template if:true={hasError}>
+            {error}
+            </template>
+            
+      <vlocity_ins-action action-wrapperclass="slds-hide" re-render-flyout class="action-trigger slds-col" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+      
+      </vlocity_ins-action>
+  
+            <vlocity_ins-action class="execute-action" re-render-flyout action-wrapperclass="slds-hide" onupdateos={updateOmniscript} onsetvalue={updateAction}>
+            
+            </vlocity_ins-action>
+            </div>
+          </template>

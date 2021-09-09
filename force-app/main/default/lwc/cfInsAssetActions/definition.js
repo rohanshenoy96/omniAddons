@@ -1,0 +1,3 @@
+let definition = 
+                {"Cards":["ins-asset-actions-card"],"GlobalKey__c":"ins-asset-actions/1/Vlocity/1586474888930","componentName":"cfInsAssetActions","dataSource":{"type":"Query","value":{"jsonMap":"{\"params.id\":\"{{params.id}}\"}"}},"enableLwc":true,"lwc":{"DeveloperName":"cardCanvas1x","Id":"0Rb5e000002BvWiSAQ","MasterLabel":"cardCanvas1x","NamespacePrefix":"vlocity_ins","name":"cardCanvas1x"},"previewType":"runTime","repeatCards":false,"workspace":["ins-asset-actions-card/Vlocity/1/1586475008863"]}; 
+            export default definition

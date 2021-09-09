@@ -1,0 +1,28 @@
+<apex:page standardStylesheets="false" showHeader="false" sidebar="false" docType="html-5.0">
+    <style>
+        svg.nds-button__icon[alt='search'] {
+            display: none;
+        }
+        .via-nds .nds-form-element__control.nds-form-element__control-animated-label input[readonly] ~ label {
+            padding-left: 0;
+        }
+    </style>
+    
+    <div class="vlocity via-slds" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" ng-app="NewOmniScript">
+        <vlocity_ins:BusinessProcessComponent strOmniScriptType="SmallGroup"
+            strOmniScriptSubType="Quoting"
+            strOmniScriptLang="English"
+            previewMode="{!$CurrentPage.parameters.previewEmbedded}"
+            verticalMode="{!$CurrentPage.parameters.verticalMode}"
+            strOmniScriptId="{!$CurrentPage.parameters.designerPreviewId}"
+            scriptLayout="newport"
+            />
+        <apex:includeScript value="{!$Resource.SheetJs}"/>
+        <apex:includeScript value="{!$Resource.insOsFlowCensusTemplate}"/>
+        <script type="text/javascript">
+            var modules = ['vlocity-business-process'];
+            var myModule = angular.module('NewOmniScript', modules);
+        </script>
+    </div>
+    <vlocity_ins:VFActionFunction /> 
+</apex:page>

@@ -1,0 +1,9 @@
+<apex:page standardController="Account" extensions="vlocity_ins.VFPageControllerBase" showHeader="false" sidebar="false" docType="html-5.0">
+
+<apex:stylesheet value="{!URLFOR($Resource.vlocity_icons, '/css/vlocity-icons.css')}"/>
+
+        <vlocity_ins:ActionComponent standardController="{!stdController}"  
+                            objType="Account"
+                            style="Horizontal"/>      
+             
+</apex:page>

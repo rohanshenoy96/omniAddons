@@ -1,0 +1,34 @@
+.json-viewer {
+    min-height: 35.8rem;
+    max-height: 35.8rem;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    border: 1px solid #6d6875;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #efefef;
+}
+
+.border-bottom {
+    padding-bottom: .5rem;
+}
+
+.u-no-margin {
+    margin: 0;
+}
+
+.spinner_container {
+    position: relative;
+    height: 60vh;
+}
+
+.spinner__holder {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

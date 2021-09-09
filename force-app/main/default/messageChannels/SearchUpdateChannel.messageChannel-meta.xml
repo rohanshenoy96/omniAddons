@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>SearchUpdateChannel</masterLabel>
+    <isExposed>true</isExposed>
+    <description>Global search channel.</description>
+    <lightningMessageFields>
+        <fieldName>data</fieldName>
+        <description>This is search update for omniscript global</description>
+    </lightningMessageFields>
+</LightningMessageChannel>

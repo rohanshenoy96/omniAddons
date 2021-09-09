@@ -1,0 +1,157 @@
+<apex:component >
+<style>
+
+<!------------------------------------- FORM PANEL HEADING FORMAT ------------------------------------>
+<!-- Overall panel border style and colors – line color separating vertical mode elements -->
+
+      .vlocity .panel>.panel-heading {
+        border-top-style:solid;
+        border-color:#56538C;  
+        background-color: white !important;
+        }
+
+<!------------------- This cancels out a border that is inherited from (index).css ------------------->
+
+      .vlocity .panel-oui {
+        border: 0;
+        border-radius: 0 !important;  
+        border-color:#56538C;  
+        border-top: 1px solid #FFFFFF;
+        margin: 0px !important;
+        }
+    
+<!-------------------------------- PANEL HEADER STYLE ON THE LINE ----------------------------------->
+<!------------------------ Panel Header Title font size, color and case -----------------------------> 
+     
+      .vlocity .panel-oui>.panel-heading>.panel-title>span {
+        font-size: 18px !important;      <!-- DEFAULT is 17px -->
+        line-height: 24px !important;
+        color:#56538C !important;        <!-- heading text color DEFAULT is black -->
+        text-transform:uppercase;*/      <!-- none|capitalize|uppercase|lowercase|initial|inherit   DEFAULT is capitalize -->
+        } 
+    
+<!------------------------------------- BUTTON COLOR FORMATS ---------------------------------------->
+<!---- Button image foreground, background, and border colors for the NEXT & PREVIOUS form buttons -->
+ 
+     <!----  NEXT button when not hovering -->
+     .vlocity .btn-primary{
+        background-image:linear-gradient(to bottom, #56538C 0%, #381C6B 100%);
+        border-color:#381C6B;
+        color:white;   <!-- Button text color -->
+        }
+        
+     <!----  HOVER button (typically a darker version of the primary color) -->
+     .vlocity .btn:hover{
+        background-color:#381C6B;
+        border-color:#381C6B;
+        color:white;   <!-- Button text color -->
+        }
+     
+     <!---- PREVIOUS button when not hovering -->
+     .vlocity .btn-default{
+        background-color:grey;
+        border-color:grey;
+        color:#00a8e1;  <!-- Button text color -->
+        }
+
+<!-- if you change the inherited hover for buttons, you need to include this for URL links; otherwise, they will display as the button hover color -->
+     
+     .vlocity .btn-link:hover{
+        background-color:white;
+        border-color:white;
+        color:#381C6B;  <!-- Link text color -->
+        }    
+        
+<!---------------------------------- LABELS FOR DATA FIELDS ----------------------------------------->
+<!-- This controls the text for the labels on all the form fields.  These are the default values   -->
+
+      .vlocity .field-label {
+        color: rgba(0,0,0,0.6);
+        text-transform: uppercase;
+        height: 17px;
+      }
+
+<!-------------------------------------- BACKGROUND COLOR ------------------------------------------->
+<!---------------------------- Background of the entire OS panel ------------------------------------>
+
+      .vlocity .panel-oui>.panel-body {
+         background:white !important;
+      }
+    
+     .vlocity .panel-oui label {
+        margin-bottom: 6px !important;
+        margin-top: 6px !important;
+        letter-spacing: 1.15px !important;
+        color: #757575 !important;
+      }
+    
+<!------------------------------------ HEADLINE FONTS ----------------------------------------------->
+
+      .vlocity h1{
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 14px;
+        margin-bottom: 6px;
+      }
+
+/*
+<!------------------------------------ LOGO STYLING ------------------------------------------------->
+<!-------------- NOTE: Image file reference is in VF Page within master_container-------------------->
+
+    .OS_Header_Logo{
+            float:top;
+            margin-top:0px;
+            vertical-align:middle;
+            width:100%;
+            height:100%;
+        }
+
+<!------------------------------------ HEADER STYLING ----------------------------------------------->
+<!------------------ NOTE: Header text is in VF Page within master_container ------------------------>
+
+           .OS_Header{
+            width:100%;
+            background:#393D3D;
+            padding:5px;
+            box-sizing:border-box;
+            font-size: 40px;
+            line-height: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        } 
+
+*/
+
+</style>
+
+<!---------------------------- CUSTOM SELECTABLE ITEMS STYLING TEMPLATE ------------------------------->
+
+<script type="text/ng-template" id="TRNGSelectableItems">  <!-- script id Name is specified in Selectable Items component in OmniScript -->
+   <h2>{{control.propSetMap.label}}</h2>
+   <br/>
+        <div class="small-list col-md-6" ng-repeat='p in control.vlcSI[control.itemsKey]'>        <!-- Creating the table layout -->
+        <div class="row result-box " ng-class="{'selected':p.added}">
+            <div class="img-container padding0">                                                  <!-- Product Image -->
+                <img ng-if="p.Image" src="{{p.Image}}"/>
+            </div>
+            <div class="product-info padding0" >
+                <h3 class="title">{{p.Name}}</h3>             <!-- Product Name -->  
+                <p class="description">{{p.Description}}      <!-- Product Description -->
+                <h6>One Time Price</h6>                       <!-- Price Label-->
+                <h2>{{p.OneTimeCost}}</h2>                    <!-- List Price -->
+                </p>
+            </div>
+
+            <div class="item-actions">  
+                <button class="btn btn-primary col-md-12" ng-if="!p.added" ng-click="buttonClick(bpTree.response, control, this, p, 'Add', baseCtrl.customHandleSelectedItem)">
+                   Add to Cart</button>         <!-- Button text -->
+                <button class="btn btn-success col-md-12" ng-if="p.added" ng-click="buttonClick(bpTree.response, control, this, p, 'Remove', baseCtrl.customHandleSelectedItem)">
+                   <span class="icon icon-v-check"></span> </button>  <!-- Button text -->                    
+            </div>
+        </div>
+        </div>
+   </div>
+</script>
+
+</apex:component>

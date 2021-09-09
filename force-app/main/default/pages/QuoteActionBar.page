@@ -1,0 +1,5 @@
+<apex:page standardController="Quote" extensions="vlocity_ins.VFPageControllerBase" showHeader="false" sidebar="false" docType="html-5.0"> 
+<vlocity_ins:ActionComponent standardController="{!stdController}" 
+                   objType="Quote" style="Horizontal" 
+                   linkTypes="OmniScript,Other"/> 
+</apex:page>

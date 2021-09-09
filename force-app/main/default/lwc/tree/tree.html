@@ -1,0 +1,7 @@
+<template>
+    <template for:each={nodes} for:item="node">
+        <div key={node.Id}>
+            <c-node node-data={node}></c-node>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,35 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" controller="vlc_IndSearchResults" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="nodes" type="Object"/>
+    <aura:attribute name="searchResult" type="Object"/>
+    <aura:attribute name="contextId" type="Id" default ="a0g5e000001KJ7AAAW"/>
+    <lightning:layout horizontalAlign ="space">
+        
+        <lightning:layoutItem >
+            <lightning:tree  items="{!v.nodes}" header="OS Structure"></lightning:tree >
+        </lightning:layoutItem>
+        <lightning:layoutItem >
+            <div onkeyup="{! c.handleKeyUp }">
+                <lightning:input
+                                 aura:id="enter-search"
+                                 name="enter-search"
+                                 label="Search when user hits the 'enter' key"
+                                 type="search"
+                                 />
+            </div>
+            <aura:if isTrue ="{!v.searchResult}">
+            
+                <aura:iteration items="{!v.searchResult}" var="item">
+                    {!item}<br/>
+                </aura:iteration>
+                
+            
+        </aura:if>
+        </lightning:layoutItem>
+        
+    </lightning:layout>
+    
+    
+    
+    
+</aura:component>

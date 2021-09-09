@@ -1,0 +1,41 @@
+.tree-node {
+    border: 1px solid #d8d8d8;
+    background-color: white;
+}
+
+.tree-node-data {
+    display: flex;
+    justify-content: space-between;
+}
+.tree-node-data:hover {
+    font-weight: 500;
+}
+
+.tree-metatext {
+    color: #aaa;
+}
+
+.matched {
+    /* color: green; */
+    margin-left: 10px;
+}
+
+.tree-label {
+    cursor: pointer;
+}
+
+.node-notmatched {
+    background-color: white;
+} 
+
+.node-matched {
+    background-color: rgb(59, 167, 85);
+}
+
+.node-matched > .tree-node-data > .tree-metatext {
+    color: white;
+}
+
+.node-matched > .tree-node-data > .tree-label {
+    font-weight: bold;
+}

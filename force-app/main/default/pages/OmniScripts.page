@@ -1,0 +1,12 @@
+<apex:page standardStylesheets="false" showHeader="true" sidebar="true" docType="html-5.0" Controller="vlocity_ins.VFPageControllerBase">
+    <div class="vlocity" ng-app="XXX"> 
+        <vlocity_ins:ApplicationComponent strType="OmniScripts" verticalMode="false" />
+        <vlocity_ins:BusinessProcessComponent /> 
+        <vlocity_ins:BusinessProcessHelperComponent /> 
+        <vlocity_ins:JSONTreeHTMLTemplateComponent />
+        <script type="text/javascript">
+            var modules = ['vlocity-application', 'vlocity-business-process'];
+            var myModule = angular.module('XXX', modules);
+       </script>
+    </div> 
+</apex:page>

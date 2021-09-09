@@ -1,0 +1,29 @@
+<apex:page standardStylesheets="false" showHeader="true" sidebar="false" standardController="Contact" extensions="vlocity_ins.VFPageControllerBase" docType="html-5.0" >
+<apex:stylesheet value="{!URLFOR($Resource.vlocity_icons, '/css/vlocity-icons.css')}"/>
+<!--  showHeader: displays Salesforce app header    sidebar: displays Salesforce sidebar -->
+
+<div id="master_container"> 
+
+<!---------------------------------------- HEADER AND LOGO ----------------------------------------->
+<!--------------------------- NOTE: Header and Image Styling in VFComponent ------------------------>
+
+   <div id="app_container">
+        <div ng-app="TRNG_OmniScript" class='vlocity'> 
+            <vlocity_ins:BusinessProcessComponent standardController="{!stdController}"
+                                                                   strOmniScriptType="Account Management"
+                                                                   strOmniScriptSubType="Add Authorized User"
+                                                                   strOmniScriptLang="English"
+                                                                   strPrefillDataRaptorBundle=""
+                                                                   verticalMode="FALSE"  
+                                                                   /> 
+            <vlocity_ins:BusinessProcessHelperComponent />
+            <vlocity_ins:JSONTreeHTMLTemplateComponent />
+            <script type="text/javascript">
+                var modules = ['vlocity-business-process'];
+                var myModule = angular.module('TRNG_OmniScript', modules);
+            </script> 
+   </div>
+</div>
+</div>
+
+</apex:page>

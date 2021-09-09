@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
+    <masterLabel>BooleanFlagChannel</masterLabel>
+    <isExposed>true</isExposed>
+    <description>Expand All channel</description>
+    <lightningMessageFields>
+        <fieldName>expandAll</fieldName>
+        <description>Flag to indicate if we need to expand all</description>
+    </lightningMessageFields>
+</LightningMessageChannel>
