@@ -1,0 +1,25 @@
+.selectedOption {
+    width: 99.5%;
+    position: absolute;
+    z-index: 10;
+}
+
+.search-result_left-pad {
+    padding-left: 35px !important;
+}
+
+
+.button__container {
+    display: flex;
+    align-items: center;
+    margin-top: 1.25rem;
+}
+
+.card__heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__icon {
+    cursor: pointer;
+}
