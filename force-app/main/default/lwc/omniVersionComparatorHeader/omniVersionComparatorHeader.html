@@ -13,8 +13,8 @@
             </div>
         </div>
         <template if:true={showConfig}>
-            <div class="slds-grid slds-gutters slds-p-around_medium">
-                <div class="slds-col slds-size_1-of-3">
+            <div class="slds-grid slds-wrap slds-gutters slds-p-around_medium">
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <div class="slds-form-element">
                         <label class="slds-form-element__label" for="combobox-id-3">Search for Omniscript...</label>
                         <div class="slds-form-element__control">
@@ -94,10 +94,10 @@
                                                     key={omniscript.Id}
                                                     onclick={handleOSChange}
                                                     data-id={omniscript.Id}
-                                                    data-name={omniscript.Name}
-                                                    data-type={omniscript.vlocity_ins__Type__c}
-                                                    data-sub-type={omniscript.vlocity_ins__SubType__c}
-                                                    data-language={omniscript.vlocity_ins__Language__c}>
+                                                    data-name={omniscript.name}
+                                                    data-type={omniscript.osType}
+                                                    data-sub-type={omniscript.osSubtype}
+                                                    data-language={omniscript.language}>
                                                     <div
                                                         aria-selected="true"
                                                         id={omniscript.Id}
@@ -116,7 +116,7 @@
                                                         </span>
                                                         <span class="slds-media__body">
                                                             <span class="slds-listbox__option-text slds-listbox__option-text_entity">Omniscript</span>
-                                                            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity" >{omniscript.Name}</span>
+                                                            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity" >{omniscript.name}</span>
                                                         </span>
                                                     </div>
                                                 </li>
@@ -130,8 +130,8 @@
                     </div>
                 </div>
             </div>
-            <div class="slds-grid slds-gutters slds-p-horizontal_medium slds-p-bottom_medium">
-                <div class="slds-col slds-size_1-of-3">
+            <div class="slds-grid slds-wrap slds-gutters slds-p-horizontal_medium slds-p-bottom_medium">
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <lightning-combobox
                         name="primaryVersion"
                         class="primaryVersion"
@@ -142,7 +142,7 @@
                         onchange={handlePrimaryVersionChange}>
                     </lightning-combobox>
                 </div>
-                <div class="slds-col slds-size_1-of-3">
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12">
                     <lightning-combobox
                         name="secondaryVersion"
                         class="secondaryVersion"
@@ -153,8 +153,8 @@
                         onchange={handleSecondaryVersionChange}>
                     </lightning-combobox>
                 </div>
-                <div class="slds-col slds-size_1-of-3 button__container">
-                    <lightning-button variant="brand" label="Get Difference" title="Get Difference" onclick={getDifference} class="slds-m-left_x-small"></lightning-button>
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_12-of-12 slds-large-size_4-of-12 button__container">
+                    <lightning-button variant="brand" label="Get Difference" title="Get Difference" onclick={getDifference} class="slds-m-left_x-small button__custom"></lightning-button>
                 </div>
             </div>
         </template>

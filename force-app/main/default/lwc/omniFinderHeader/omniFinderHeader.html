@@ -119,10 +119,10 @@
                                                 key={omniscript.Id}
                                                 onclick={handleOSChange}
                                                 data-id={omniscript.Id}
-                                                data-name={omniscript.Name}
-                                                data-type={omniscript.vlocity_ins__Type__c}
-                                                data-sub-type={omniscript.vlocity_ins__SubType__c}
-                                                data-language={omniscript.vlocity_ins__Language__c}>
+                                                data-name={omniscript.name}
+                                                data-type={omniscript.osType}
+                                                data-sub-type={omniscript.osSubtype}
+                                                data-language={omniscript.language}>
                                                 <div
                                                     aria-selected="true"
                                                     id={omniscript.Id}
@@ -141,7 +141,7 @@
                                                     </span>
                                                     <span class="slds-media__body">
                                                         <span class="slds-listbox__option-text slds-listbox__option-text_entity">Omniscript</span>
-                                                        <span class="slds-listbox__option-meta slds-listbox__option-meta_entity" >{omniscript.Name}</span>
+                                                        <span class="slds-listbox__option-meta slds-listbox__option-meta_entity" >{omniscript.name}</span>
                                                     </span>
                                                 </div>
                                             </li>

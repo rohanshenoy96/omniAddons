@@ -1,0 +1,44 @@
+<template>
+    <template if:true={isTreeStructure}>
+        <div class="slds-p-around_small slds-m-vertical_small tree-node node-default">
+            <!-- slds-p-around_small slds-m-vertical_small tree-node -->
+            <div class="tree-node-data">
+                <span class="tree-label" onclick={updatedExpandedView}>
+                    <template if:false={expanded}>
+                        <svg height="15" viewBox="0 0 48 48" width="30" xmlns="http://www.w3.org/2000/svg"><path d="M-838-2232H562v3600H-838z" fill="none"></path><path d="M16 10v28l22-14z"></path><path d="M0 0h48v48H0z" fill="none"></path> </svg>
+                    </template>
+                    <template if:true={expanded}>
+                        <svg width="24px" height="24px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="0" fill="none" width="24" height="24"/><g><path d="M7 10l5 5 5-5"></path></g></svg>
+                    </template>
+                    <span>
+                        {nodeData.label}
+                        <!-- <template if:true={isMatchFound}>
+                            <span class="matched">(Matched)</span>
+                        </template> -->
+                    </span>
+                </span>
+                <span class="tree-metatext">{nodeData.metatext}</span>
+            </div>
+            <div class={expandedClass}>
+                <div class="slds-m-left_small">
+                    <c-tree nodes={nodeData.items}></c-tree>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template if:false={isTreeStructure}>
+        <div class="slds-p-around_small slds-m-vertical_small tree-node node-default">
+            <div class="tree-node-data">
+                <span class="tree-label">
+                    {nodeData.label} 
+                    <!-- <template if:true={isMatchFound}>
+                        <span class="matched">(Matched)</span>
+                    </template> -->
+                </span>
+                <span class="tree-metatext">{nodeData.metatext}</span>
+            </div>
+        </div>
+    </template>
+    
+</template>

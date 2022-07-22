@@ -1,0 +1,25 @@
+.tree-node {
+    border: 1px solid #d8d8d8;
+    background-color: white;
+}
+
+.tree-node-data {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tree-node-data:hover {
+    font-weight: 500;
+}
+
+.node-default {
+    background-color: white;
+}
+
+.tree-label {
+    cursor: pointer;
+}
+
+.tree-metatext {
+    color: #aaa;
+}
