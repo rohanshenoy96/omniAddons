@@ -1,0 +1,22 @@
+:host {
+    --sds-c-card-color-background: #eee;
+}
+
+.card__heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card__icon {
+    cursor: pointer;
+}
+
+article.slds-card {
+    max-height: 70vh;
+    overflow: scroll;
+}
+
+.card-container {
+    max-height: 72vh;
+    overflow: scroll;
+}

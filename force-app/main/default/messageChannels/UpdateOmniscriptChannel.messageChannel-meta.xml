@@ -1,22 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <LightningMessageChannel xmlns="http://soap.sforce.com/2006/04/metadata">
-    <masterLabel>UpdateOmniscriptChannel</masterLabel>
-    <isExposed>true</isExposed>
     <description>Update omniscript Id so body component can refresh data.</description>
+    <isExposed>true</isExposed>
     <lightningMessageFields>
-        <fieldName>recordId</fieldName>
         <description>This is the record Id that changed</description>
+        <fieldName>recordId</fieldName>
     </lightningMessageFields>
-    <!-- <lightningMessageFields>
-        <fieldName>message</fieldName>
-        <description>This is sample message</description>
-    </lightningMessageFields>
-    <lightningMessageFields>
-        <fieldName>source</fieldName>
-        <description>This is the source message</description>
-    </lightningMessageFields>
-    <lightningMessageFields>
-        <fieldName>recordData</fieldName>
-        <description>The current data representing the record that changed</description>
-    </lightningMessageFields> -->
+    <masterLabel>UpdateOmniscriptChannel</masterLabel>
 </LightningMessageChannel>

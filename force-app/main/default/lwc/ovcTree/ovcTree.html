@@ -1,0 +1,7 @@
+<template>
+    <template for:each={nodes} for:item="node">
+        <div key={node.Id}>
+            <c-ovc-node node-data={node}></c-ovc-node>
+        </div>
+    </template>
+</template>

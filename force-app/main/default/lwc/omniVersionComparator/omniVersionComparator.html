@@ -1,3 +1,21 @@
 <template>
     <c-omni-version-comparator-header></c-omni-version-comparator-header>
+
+    <div class="slds-m-vertical_medium">
+        <lightning-card >
+            <lightning-layout class="slds-wrap">
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="3">
+                    <c-omni-version-comparator-structure ontreedataloaded={handleDataLoad} version="primary"></c-omni-version-comparator-structure>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="3">
+                    <c-omni-version-comparator-structure ontreedataloaded={handleDataLoad} version="secondary"></c-omni-version-comparator-structure>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="12" medium-device-size="6" large-device-size="3">
+                    <!-- <c-omni-version-comparator-structure></c-omni-version-comparator-structure> -->
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates nostrum doloremque delectus libero alias laudantium debitis, ex eius impedit commodi tempore tenetur eligendi molestiae voluptate, deleniti autem sint. Assumenda, blanditiis.
+                </lightning-layout-item>
+            </lightning-layout>
+        </lightning-card>
+    </div>
+    
 </template>

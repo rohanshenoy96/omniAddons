@@ -26,7 +26,7 @@ export default class OmniVersionComparatorHeader extends LightningElement {
         getOmniscriptList()
             .then((data) => {
                 this.omniscripts = JSON.parse(data);
-                console.log('RS data', this.omniscripts);
+                console.log('RS data', JSON.stringify(this.omniscripts));
                 this.searchedOmniscripts = JSON.parse(JSON.stringify(this.omniscripts)); // This will create a deep clone
                 // this.iconFlag = false;
                 // this.clearIconFlag = true
@@ -59,10 +59,10 @@ export default class OmniVersionComparatorHeader extends LightningElement {
         this.search = searchKey;
 
         this.searchedOmniscripts = this.omniscripts.filter(omniscript => {
-            return omniscript.Name.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__Type__c.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__SubType__c.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__Language__c.toLowerCase().includes(searchKey.toLowerCase())
+            return omniscript.name.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.osType.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.osSubtype.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.language.toLowerCase().includes(searchKey.toLowerCase())
         });
     }
 
@@ -115,18 +115,16 @@ export default class OmniVersionComparatorHeader extends LightningElement {
     handlePrimaryVersionChange(event) {
         const versionId = event.target.value;
         this.primaryVersion = versionId;
-        console.log('RS versionId', versionId, this.primaryVersion);
     }
 
     handleSecondaryVersionChange(event) {
         const versionId = event.target.value;
         this.secondaryVersion = versionId;
-        console.log('RS versionId', versionId, this.secondaryVersion);
     }
 
     getDifference() {
-        console.log('RS versionId', this.primaryVersion, this.secondaryVersion);
         let secondaryVersion = this.template.querySelector('.secondaryVersion');
+
         if (this.primaryVersion === this.secondaryVersion) {
             secondaryVersion.setCustomValidity('Primary and secondary versions cannot be the same');
             secondaryVersion.reportValidity();
@@ -137,7 +135,8 @@ export default class OmniVersionComparatorHeader extends LightningElement {
         secondaryVersion.reportValidity();
 
         // Publish hit difference event
-        const payload = { primaryVersion: this.primaryVersion, secondaryVersion: this.secondaryVersion.name };
+        const payload = { primaryVersion: this.primaryVersion, secondaryVersion: this.secondaryVersion };
+        console.log('RS payload', payload);
         publish(this.messageContext, GET_DIFFERENCE_CHANNEL, payload);
     }
 

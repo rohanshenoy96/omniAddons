@@ -72,10 +72,10 @@ export default class OmniFinderHeader extends LightningElement {
         this.search = searchKey;
 
         this.searchedOmniscripts = this.omniscripts.filter(omniscript => {
-            return omniscript.Name.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__Type__c.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__SubType__c.toLowerCase().includes(searchKey.toLowerCase()) || 
-                omniscript.vlocity_ins__Language__c.toLowerCase().includes(searchKey.toLowerCase())
+            return omniscript.name.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.osType.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.osSubtype.toLowerCase().includes(searchKey.toLowerCase()) || 
+                omniscript.language.toLowerCase().includes(searchKey.toLowerCase())
         });
     }
 
